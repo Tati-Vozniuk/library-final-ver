@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap');
+
+body{
+    background-color: var(--main-color);
+    margin: 0;
+}
+
+:root {
+    --main-color: #8B9BA7;
+    --brown-color: #392318;
+}
+
+.header-nav{
+    display: flex;
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+    gap: 35px;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+}
+
+.header-nav p{
+    font-size: 20px;    
+}
+
+.header-nav img{
+    max-width: 45px;
+    max-height: 45px;
+}
+
+h1{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+    font-size: 120px;
+    text-align: start;
+    margin: 10px;
+    margin-left: 55px;
+}
+
+.divider{
+    background-color: var(--brown-color);
+    height: 7px;
+}
+
+.info-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 40px;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.info-box img{
+    max-width: 388px;
+    border: 3px #392318 solid;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 800px;
+}
+
+.description h2{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+    font-size: 35px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.description p{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #484848;
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.button{
+    background: transparent;
+    border: 2px solid var(--brown-color);
+
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+
+    padding: 12px 30px;
+    border-radius: 6px;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    margin-right: 10px;
+}
+
+
+footer{
+    background-color: var(--brown-color);
+}
+
+footer h3{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #887B74;
+    font-size: 30px;
+    padding-left: 25px;
+    padding-top: 20px;
+    margin-bottom: 5px;
+}
+
+footer p{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #887B74;
+    font-size: 15px;
+    padding-left: 25px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 15px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .header-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .header-nav img {
+        max-width: 32px;
+        max-height: 32px;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-left: 15px;
+    }
+
+    .info-box {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .info-box img {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+
+    .description h2 {
+        font-size: 24px;
+    }
+
+    .description p {
+        font-size: 18px;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 10px 18px;
+        margin-bottom: 10px;
+    }
+
+    .divider {
+        height: 4px;
+    }
+}

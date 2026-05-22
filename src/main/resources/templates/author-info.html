@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${author.name}">Author Information</title>
+    <link rel="stylesheet" th:href="@{/css/info.css}">
+</head>
+<body>
+<header>
+    <div class="header-nav">
+        <a th:href="@{/}" style="text-decoration:none; color:inherit;">Home</a>
+        <a th:href="@{/books/export}" style="text-decoration:none; color:inherit;">Export list of books</a>
+        <a th:href="@{/authors}" style="text-decoration:none; color:inherit;">Authors</a>
+        <a th:href="@{/books}" style="text-decoration:none; color:inherit;">Books</a>
+        <form th:action="@{/logout}" method="post" style="display:inline; margin:0;">
+            <button type="submit" style="background:none; border:none; cursor:pointer; font-family:'Modern Antiqua',serif; font-size:20px; color:#392318; padding:0;">Log out</button>
+        </form>
+        <a th:href="@{/profile}"><img th:src="@{/img/acc-symbol-brown.png}" class="header-nav-img"></a>
+    </div>
+    <div>
+        <h1 th:text="${author.name}">Author Name</h1>
+    </div>
+</header>
+
+<div class="divider"></div>
+
+<div class="info-box">
+    <div>
+        <img th:src="${author.photo != null ? '/img/authors/' + author.photo : '/img/authors/placeholder.png'}" th:alt="${author.name}">
+    </div>
+    <div class="description">
+        <h2>Books</h2>
+        <p th:each="book : ${author.books}" th:text="${book.title}" style="margin:0; font-size:22px;">Book title</p>
+        <p th:if="${#lists.isEmpty(author.books)}" style="color:#484848;">No books yet.</p>
+        <div style="margin-top:20px;">
+            <form th:action="@{/authors/delete/{id}(id=${author.id})}" method="post" style="display:inline;">
+                <button class="button" type="submit"
+                        onclick="return confirm('Delete this author and all their books?')">Delete author and related books</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="header-box">
+    <div class="header-nav">
+        <a th:href="@{/books/export}" style="text-decoration:none; color:inherit;">Export list of books</a>
+        <a th:href="@{/authors}" style="text-decoration:none; color:inherit;">Authors</a>
+        <a th:href="@{/books}" style="text-decoration:none; color:inherit;">Books</a>
+        <form th:action="@{/logout}" method="post" style="display:inline; margin:0;">
+            <button type="submit" style="background:none; border:none; cursor:pointer; font-family:'Modern Antiqua',serif; font-size:20px; color:#8B9BA7; padding:0;">Log out</button>
+        </form>
+        <a th:href="@{/profile}"><img th:src="@{/img/acc-symbol.png}" class="header-nav-img"></a>
+    </div>
+    <div>
+        <h1>Library</h1>
+    </div>
+</header>
+
+<div class="popular-books">
+    <h2>Popular books</h2>
+    <a th:href="@{/books}" class="books-view-all" style="text-decoration:none;">view all -></a>
+    <div class="popular-one-book">
+        <div th:each="book : ${popularBooks}">
+            <a th:href="@{/books/{id}(id=${book.id})}">
+                <img th:src="${book.coverImage != null ? '/img/books/' + book.coverImage : '/img/books/placeholder.png'}" alt="book cover">
+            </a>
+            <p class="book-name" th:text="${book.title}">Title</p>
+            <p class="book-author" th:text="${'by ' + (book.author != null ? book.author.name : 'Unknown')}">by Author</p>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="authors">
+    <h2>Authors</h2>
+    <a th:href="@{/authors}" class="authors-view-all" style="text-decoration:none;">view all -></a>
+</div>
+
+<footer>
+    <h3>Let`s keep in touch</h3>
+    <p>tetiana.vozniuk.pp.2023@lpnu.ua</p>
+</footer>
+</body>
+</html>

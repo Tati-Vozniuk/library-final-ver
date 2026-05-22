@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All authors</title>
+    <link rel="stylesheet" th:href="@{/css/all-author-book.css}">
+</head>
+<body>
+<header>
+    <div class="header-nav">
+        <a th:href="@{/}" style="text-decoration:none; color:inherit;">Home</a>
+        <a th:href="@{/books/export}" style="text-decoration:none; color:inherit;">Export list of books</a>
+        <a th:href="@{/authors}" style="text-decoration:none; color:inherit;">Authors</a>
+        <a th:href="@{/books}" style="text-decoration:none; color:inherit;">Books</a>
+        <form th:action="@{/logout}" method="post" style="display:inline; margin:0;">
+            <button type="submit" style="background:none; border:none; cursor:pointer; font-family:'Modern Antiqua',serif; font-size:20px; color:#392318; padding:0;">Log out</button>
+        </form>
+        <a th:href="@{/profile}"><img th:src="@{/img/acc-symbol-brown.png}" class="header-nav-img"></a>
+    </div>
+    <div>
+        <h1>All authors</h1>
+    </div>
+</header>
+
+<div class="divider"></div>
+
+<div class="control">
+    <a th:href="@{/authors/new}" style="text-decoration:none;" class="add-new">
+        Add new author
+    </a>
+</div>
+
+<div class="books">
+    <div th:each="author : ${authors}">
+        <img th:src="${author.photo != null ? '/img/authors/' + author.photo : '/img/authors/placeholder.png'}" alt="author photo">
+        <a th:href="@{/authors/{id}(id=${author.id})}" style="text-decoration:none;">
+            <p th:text="${author.name + ' →'}">Learn more -></p>
+        </a>
+    </div>
+    <div th:if="${#lists.isEmpty(authors)}">
+        <p style="font-family:'Modern Antiqua',serif; color:#484848; font-size:25px; margin-left:55px;">No authors found.</p>
+    </div>
+</div>
+
+</body>
+</html>

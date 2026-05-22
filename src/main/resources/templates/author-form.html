@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Author</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+</head>
+<body>
+<header>
+    <div class="header-nav">
+        <a th:href="@{/}" style="text-decoration:none; color:inherit;">Home</a>
+        <a th:href="@{/books/export}" style="text-decoration:none; color:inherit;">Export list of books</a>
+        <a th:href="@{/authors}" style="text-decoration:none; color:inherit;">Authors</a>
+        <a th:href="@{/books}" style="text-decoration:none; color:inherit;">Books</a>
+        <form th:action="@{/logout}" method="post" style="display:inline; margin:0;">
+            <button type="submit" style="background:none; border:none; cursor:pointer; font-family:'Modern Antiqua',serif; font-size:20px; color:#392318; padding:0;">Log out</button>
+        </form>
+        <a th:href="@{/profile}"><img th:src="@{/img/acc-symbol-brown.png}" class="header-nav-img"></a>
+    </div>
+    <div>
+        <h1>Add Author</h1>
+    </div>
+</header>
+
+<div class="divider"></div>
+
+<form th:action="@{/authors/save}" th:object="${author}" method="post" enctype="multipart/form-data">
+    <div class="info-box">
+        <div>
+            <h2>Name</h2>
+            <input type="text" th:field="*{name}" placeholder="Author name" class="input-field" required>
+        </div>
+        <div>
+            <h2>Photo</h2>
+            <input type="file" name="photoFile" accept="image/*" class="input-field">
+            <div th:if="${author.photo != null}">
+                <img th:src="@{'/img/authors/' + ${author.photo}}" style="max-width:150px; margin-top:10px;">
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="save-button">Save</button>
+            <a th:href="@{/authors}">
+                <button type="button" class="save-button" style="background:transparent; color:#392318; margin-left:10px;">Cancel</button>
+            </a>
+        </div>
+    </div>
+</form>
+
+</html>

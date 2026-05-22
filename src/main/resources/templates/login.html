@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<header>
+    <div class="header-nav">
+        <p>Export list of books</p>
+        <a th:href="@{/authors}" style="text-decoration:none; color:inherit;">Authors</a>
+        <a th:href="@{/books}" style="text-decoration:none; color:inherit;">Books</a>
+        <p>Log in</p>
+        <img th:src="@{/img/acc-symbol-brown.png}" class="header-nav-img">
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-box">
+        <h1>Login</h1>
+        <p th:if="${param.error}" style="color:red;">Invalid username or password.</p>
+        <p th:if="${param.logout}" style="color:green;">You have been logged out.</p>
+        <form th:action="@{/login}" method="post">
+            <h2>Username</h2>
+            <input type="text" name="username" placeholder="admin" class="input-field" required>
+            <h2>Password</h2>
+            <input type="password" name="password" placeholder="password" class="input-field" required>
+            <button id="login-but" class="log-in-button" type="submit">Log in</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

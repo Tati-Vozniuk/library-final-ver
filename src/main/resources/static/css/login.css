@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap');
+
+body{
+    background-color: var(--main-color);
+    margin: 0;
+}
+
+:root {
+    --main-color: #8B9BA7;
+    --brown-color: #392318;
+}
+
+.header-nav{
+    display: flex;
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+    gap: 35px;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+}
+
+.header-nav p{
+    font-size: 20px;    
+}
+
+.header-nav img{
+    max-width: 45px;
+    max-height: 45px;
+}
+
+.main-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #C9DDEC;
+    
+    font-family: "Modern Antiqua", serif;
+    font-style: normal;
+    color: var(--brown-color);
+    padding: 50px;
+    margin-top: 50px;
+    border: 3px solid var(--brown-color);
+}
+
+.main-box h1{
+    font-size: 64px;
+    font-weight: 200;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.main-box h2{
+    font-size: 32px;
+    color: #484848;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field{
+    color: #484848;
+    font-size: 20px;
+    background: #C9DDEC;
+    padding: 10px 15px;
+
+    border-radius: 6px;
+
+    outline: none;
+    border: 2px solid var(--brown-color);
+    margin-bottom: 10px;
+}
+
+.log-in-button{
+    background: var(--brown-color);
+    border: 2px solid var(--brown-color);
+
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-color);
+
+    padding: 12px 10px;
+    border-radius: 6px;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    max-width: 170px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .header-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .header-nav img {
+        max-width: 32px;
+        max-height: 32px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .main-box {
+        padding: 25px 20px;
+        margin-top: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .main-box h1 {
+        font-size: 40px;
+    }
+
+    .main-box h2 {
+        font-size: 22px;
+    }
+
+    .input-field {
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .log-in-button {
+        font-size: 16px;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

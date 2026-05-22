@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap');
+
+body{
+    background-color: var(--main-color);
+    margin: 0;
+}
+
+:root {
+    --main-color: #8B9BA7;
+    --brown-color: #392318;
+}
+
+/*Main page*/
+
+.header-box{
+    background-image: url("../img/header-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 460px;
+}
+
+.header-nav{
+    display: flex;
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-color);
+    gap: 35px;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+}
+
+.header-nav p{
+    font-size: 20px;    
+}
+
+.header-nav img{
+    max-width: 45px;
+    max-height: 45px;
+}
+
+h1{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-color);
+    font-size: 128px;
+    text-align: center;
+}
+
+.popular-books{
+    margin: 25px;
+    margin-top: 0;
+    background-color: var(--brown-color);
+}
+
+.popular-books h2{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-color);
+    font-size: 40px;
+    margin-top: 0;
+    padding: 20px;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
+
+.books-view-all{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-color);
+    font-size: 20px;
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+.divider{
+    background-color: var(--brown-color);
+    height: 10px;
+}
+
+.authors{
+    padding: 25px;
+}
+
+.authors h2{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+    font-size: 40px;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.authors-view-all{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.popular-one-book{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+}
+
+.popular-one-book img{
+    max-width: 266px;
+}
+
+.book-name{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #887B74;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.book-author{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #887B74;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.author{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+}
+
+.author img{
+    max-width: 393px;
+}
+
+.author-name{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--brown-color);
+    font-size: 20px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+footer{
+    background-color: var(--brown-color);
+}
+
+footer h3{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #887B74;
+    font-size: 30px;
+    padding-left: 25px;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
+footer p{
+    font-family: "Modern Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #887B74;
+    font-size: 15px;
+    padding-left: 25px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .header-box {
+        height: auto;
+        min-height: 200px;
+    }
+
+    .header-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .header-nav img {
+        max-width: 32px;
+        max-height: 32px;
+    }
+
+    h1 {
+        font-size: 52px;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .popular-books {
+        margin: 10px;
+    }
+
+    .popular-books h2,
+    .authors h2 {
+        font-size: 28px;
+        padding: 12px;
+    }
+
+    .popular-one-book,
+    .author {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .popular-one-book img {
+        max-width: 180px;
+    }
+
+    .author img {
+        max-width: 220px;
+    }
+
+    .book-name {
+        font-size: 18px;
+    }
+
+    .book-author {
+        font-size: 13px;
+    }
+
+    .author-name {
+        font-size: 16px;
+    }
+
+    .divider {
+        height: 5px;
+    }
+
+    .authors {
+        padding: 12px;
+    }
+}

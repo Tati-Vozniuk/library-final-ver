@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${book.id == null ? 'Add Book' : 'Edit Book'}">Book Form</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+</head>
+<body>
+<header>
+    <div class="header-nav">
+        <a th:href="@{/}" style="text-decoration:none; color:inherit;">Home</a>
+        <a th:href="@{/books/export}" style="text-decoration:none; color:inherit;">Export list of books</a>
+        <a th:href="@{/authors}" style="text-decoration:none; color:inherit;">Authors</a>
+        <a th:href="@{/books}" style="text-decoration:none; color:inherit;">Books</a>
+        <form th:action="@{/logout}" method="post" style="display:inline; margin:0;">
+            <button type="submit" style="background:none; border:none; cursor:pointer; font-family:'Modern Antiqua',serif; font-size:20px; color:#392318; padding:0;">Log out</button>
+        </form>
+        <a th:href="@{/profile}"><img th:src="@{/img/acc-symbol-brown.png}" class="header-nav-img"></a>
+    </div>
+    <div>
+        <h1 th:text="${book.id == null ? 'Add Book' : 'Edit Book'}">Book Form</h1>
+    </div>
+</header>
+
+<div class="divider"></div>
+
+<form th:action="@{/books/save}" th:object="${book}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}">
+    <div class="info-box">
+        <div>
+            <h2>Title</h2>
+            <input type="text" th:field="*{title}" placeholder="Book title" class="input-field" required>
+        </div>
+        <div>
+            <h2>Genre</h2>
+            <input type="text" th:field="*{genre}" placeholder="Genre" class="input-field">
+        </div>
+        <div>
+            <h2>Year</h2>
+            <input type="number" th:field="*{year}" placeholder="Year" class="input-field">
+        </div>
+        <div>
+            <h2>Description</h2>
+            <textarea th:field="*{description}" placeholder="Description..."
+                      class="input-field" rows="4" style="resize:vertical; width:400px;"></textarea>
+        </div>
+        <div>
+            <h2>Cover Image</h2>
+            <input type="file" name="coverFile" accept="image/*" class="input-field">
+            <div th:if="${book.coverImage != null}">
+                <img th:src="@{'/img/books/' + ${book.coverImage}}" style="max-width:150px; margin-top:10px;">
+            </div>
+        </div>
+        <div>
+            <h2>Author</h2>
+            <select name="author.id" class="input-field">
+                <option value="">-- Select Author --</option>
+                <option th:each="a : ${authors}"
+                        th:value="${a.id}"
+                        th:text="${a.name}"
+                        th:selected="${book.author != null and book.author.id == a.id}">Author</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="save-button">Save</button>
+            <a th:href="@{/books}">
+                <button type="button" class="save-button" style="background:transparent; color:#392318; margin-left:10px;">Cancel</button>
+            </a>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
